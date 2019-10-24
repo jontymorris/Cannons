@@ -7,11 +7,11 @@ import pygame
 
 def create_window():
     """
-    Returns a new window
+    Returns a new fullscreen window
     """
 
     pygame.init()
-    surface = pygame.display.set_mode((1920, 1080), 0, 32)
+    surface = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
     return surface
 
