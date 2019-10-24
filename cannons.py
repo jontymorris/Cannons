@@ -2,49 +2,52 @@
 Program entry point
 """
 
+import pygame
 import window
+import home
 
 
-SURFACE = window.create_window()
-CLOCK = window.create_clock()
-
-
-def poll_events():
+class Program:
     """
-    Iterates through the window events
+    Class for managing the program
     """
 
-    for event in window.poll_events():
-        # check for exit
-        if event.type == 12:
-            window.close()
-            exit(0)
+    def __init__(self):
+        self.surface = window.create_window()
+        self.clock = window.create_clock()
+        self.is_running = True
+
+        self.context = home.HomeContext()
+
+    def poll_events(self):
+        """
+        Iterates through the window events
+        """
+
+        for event in window.poll_events():
+            # check for exit
+            if event.type == pygame.QUIT:
+                self.is_running = False
+
+            # check for escape
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                self.is_running = False
+
+    def game_loop(self):
+        """
+        Runs the game loop
+        """
+
+        while self.is_running:
+            self.context.update()
+            self.context.render()
+            self.poll_events()
+
+            self.clock.tick(60)
+
+        window.close()
 
 
-def update():
-    """
-    Updates the game
-    """
-
-
-def render():
-    """
-    Draws the game
-    """
-
-
-def game_loop():
-    """
-    Runs the game loop
-    """
-
-    while True:
-        update()
-        render()
-
-        poll_events()
-        CLOCK.tick(60)
-
-
+# start the game
 if __name__ == '__main__':
-    game_loop()
+    Program().game_loop()
