@@ -11,6 +11,8 @@ def create_window():
     """
 
     pygame.init()
+    pygame.font.init()
+
     surface = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
     return surface
