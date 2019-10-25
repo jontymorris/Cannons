@@ -2,14 +2,23 @@
 Contains the class for the game's home screen
 """
 
+import pyui
+import colors
+import assets
+
 
 class HomeContext:
     """
     Used for the game's home screen
     """
 
-    def __init__(self):
-        pass
+    def __init__(self, surface):
+        self.test_label = pyui.Label(
+            surface,
+            'Hello there',
+            (0, 100),
+            (assets.ABOVE_FONT, 12, colors.BLUE)
+        )
 
     def update(self):
         """
@@ -20,3 +29,5 @@ class HomeContext:
         """
         Draws the home screen
         """
+
+        self.test_label.render()
