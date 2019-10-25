@@ -5,6 +5,7 @@ Contains the class for the game's home screen
 import pygame
 import pyui
 import assets
+import colors
 
 
 class HomeContext:
@@ -27,6 +28,12 @@ class HomeContext:
             surface, assets.CANNON_IMAGE, (520, 200), (880, 468))
         self.play_button = pyui.Button(
             surface, 'Play Cannons', (710, 750))
+        self.escape_label = pyui.Label(
+            surface,
+            'Press ESC to exit',
+            (10, 1050),
+            (assets.ABOVE_FONT, 20, colors.WHITE)
+        )
 
     def update(self):
         """
@@ -43,3 +50,4 @@ class HomeContext:
         self.desert_image.render()
         self.cannon_image.render()
         self.play_button.render()
+        self.escape_label.render()
