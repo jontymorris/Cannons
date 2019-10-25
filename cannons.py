@@ -26,10 +26,6 @@ class Program:
 
         for event in window.poll_events():
             # check for exit
-            if event.type == pygame.QUIT:
-                self.is_running = False
-
-            # check for escape
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 self.is_running = False
 
