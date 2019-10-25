@@ -2,6 +2,7 @@
 Contains the class for the game's home screen
 """
 
+import pygame
 import pyui
 import assets
 
@@ -14,6 +15,12 @@ class HomeContext:
     def __init__(self, surface):
         self.surface = surface
 
+        # play soundtrack
+        pygame.mixer.music.load(assets.HOME_SOUND)
+        pygame.mixer.music.set_volume(0.2)
+        pygame.mixer.music.play(-1)
+
+        # create the interface
         self.desert_image = pyui.Image(
             surface, assets.DESERT_IMAGE, (0, 0), (1920, 1080))
         self.cannon_image = pyui.Image(
