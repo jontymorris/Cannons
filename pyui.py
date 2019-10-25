@@ -102,6 +102,11 @@ class Button:
         Updates the button
         """
 
+        # check if mouse is over button
+        mouse_pos = pygame.mouse.get_pos()
+        button_rect = self.image_normal.rect
+        self.is_active = button_rect.collidepoint(mouse_pos)
+
     def render(self):
         """
         Draws the button

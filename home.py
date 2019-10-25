@@ -26,6 +26,8 @@ class HomeContext:
         Updates the home screen
         """
 
+        self.play_button.update()
+
     def render(self):
         """
         Draws the home screen
