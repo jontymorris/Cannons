@@ -17,7 +17,7 @@ class Program:
         self.clock = window.create_clock()
         self.is_running = True
 
-        self.context = home.HomeContext()
+        self.context = home.HomeContext(self.surface)
 
     def poll_events(self):
         """
@@ -43,6 +43,7 @@ class Program:
             self.context.render()
             self.poll_events()
 
+            pygame.display.update()
             self.clock.tick(60)
 
         window.close()
