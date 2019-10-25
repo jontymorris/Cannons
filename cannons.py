@@ -29,6 +29,10 @@ class Program:
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 self.is_running = False
 
+            # mouse release
+            elif event.type == pygame.MOUSEBUTTONUP:
+                self.context.mouse_release()
+
     def game_loop(self):
         """
         Runs the game loop

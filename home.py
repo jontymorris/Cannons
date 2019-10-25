@@ -35,6 +35,15 @@ class HomeContext:
             (assets.ABOVE_FONT, 20, colors.WHITE)
         )
 
+    def mouse_release(self):
+        """
+        Handles the mouse release event
+        """
+
+        if self.play_button.is_active:
+            # TODO: implement context switching
+            exit()
+
     def update(self):
         """
         Updates the home screen
