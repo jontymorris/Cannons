@@ -3,7 +3,6 @@ Contains the class for the game's home screen
 """
 
 import pyui
-import colors
 import assets
 
 
