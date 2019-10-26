@@ -17,7 +17,15 @@ class Program:
         self.clock = window.create_clock()
         self.is_running = True
 
-        self.context = home.HomeContext(self.surface)
+        # display the home screen
+        self.switch_context(home.HomeContext)
+
+    def switch_context(self, new_context):
+        """
+        Changse the screen context
+        """
+
+        self.context = new_context(self.surface, self.switch_context)
 
     def poll_events(self):
         """
